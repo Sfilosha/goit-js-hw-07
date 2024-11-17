@@ -27,3 +27,39 @@ const images = [
     alt: 'Zebras on Zebra',
   },
 ];
+
+
+// 01. create image card function
+const createGalleryCard = (item) => {
+
+  // 1.1 create li
+  const galleryLiEl = document.createElement("li");
+  galleryLiEl.classList.add("gallery-item")
+
+  // 1.2 create image
+  const galleryImgEl = document.createElement("img");
+  galleryImgEl.classList.add("gallery-image")
+
+  galleryImgEl.src = item.url;
+  galleryImgEl.alt = item.alt;
+  galleryImgEl.width = 360;
+
+  // 1.3 place image inside li
+  galleryLiEl.append(galleryImgEl);
+
+  // 1.4 return final structure
+  return galleryLiEl
+}
+
+// 2. Create new array based on images using function 01
+const galleryArray = images
+  .slice(0,3)
+  .map(el => createGalleryCard(el));
+// console.log(galleryArray)
+
+// 3. find Gallery
+const galleryUlEl = document.querySelector("ul.gallery");
+
+// 4. Insert in HTML
+galleryUlEl.append(...galleryArray);
+// console.log(galleryUlEl);
