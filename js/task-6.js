@@ -37,7 +37,7 @@ function createBoxes(amount) {
     boxesGrid.innerHTML = "";
     inputEl.value = "";
     
-    // Add each div in div#boxes
+    // Add newArray in div#boxes
     boxesGrid.append(...newArray)
   }
   }
