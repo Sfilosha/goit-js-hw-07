@@ -21,5 +21,8 @@ const submitForm = formEl.addEventListener("submit", event => {
         userData.email = email.trim();
         userData.password = password.trim();
         console.log(userData)
+        formEl.elements.email.value = "";
+        formEl.elements.password.value = "";
     }
 });
+

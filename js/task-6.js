@@ -21,6 +21,11 @@ const boxesGrid = document.querySelector("div#boxes");
 // 2. Functions
 function createBoxes(amount) {
 
+  // Creating temporary storage for generated content
+  const tempStorageEl = document.createElement("div")
+  tempStorageEl.id = "boxes";
+  
+  // console.log(tempStorageEl)
   // Verify if amount fits 
   if (amount > 0 && amount <= 100) {
     let newArray = [];
@@ -33,11 +38,15 @@ function createBoxes(amount) {
       newDivEl.style.backgroundColor = getRandomHexColor();
       newArray.push(newDivEl);
     }
-    // Clean the array from previous result
+    // Clean the array and input from previous result
     boxesGrid.innerHTML = "";
+    inputEl.value = "";
     
-    // Add each div in div#boxes
-    newArray.forEach(el => boxesGrid.append(el));
+    // Add each div in temporaty storage
+    newArray.forEach(el => tempStorageEl.append(el));
+    
+    // Replace HTML div with generated
+    boxesGrid.innerHTML = tempStorageEl.innerHTML;
   }
   }
 
