@@ -21,11 +21,6 @@ const boxesGrid = document.querySelector("div#boxes");
 // 2. Functions
 function createBoxes(amount) {
 
-  // Creating temporary storage for generated content
-  const tempStorageEl = document.createElement("div")
-  tempStorageEl.id = "boxes";
-  
-  // console.log(tempStorageEl)
   // Verify if amount fits 
   if (amount > 0 && amount <= 100) {
     let newArray = [];
@@ -42,11 +37,8 @@ function createBoxes(amount) {
     boxesGrid.innerHTML = "";
     inputEl.value = "";
     
-    // Add each div in temporaty storage
-    newArray.forEach(el => tempStorageEl.append(el));
-    
-    // Replace HTML div with generated
-    boxesGrid.innerHTML = tempStorageEl.innerHTML;
+    // Add each div in div#boxes
+    boxesGrid.append(...newArray)
   }
   }
 
